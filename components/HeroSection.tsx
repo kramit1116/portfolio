@@ -109,7 +109,7 @@ export default function HeroSection() {
         >
           <div className="h-px w-12 bg-gradient-to-r from-transparent to-purple-500" />
           <span className="text-xs font-mono tracking-widest text-purple-400 uppercase">
-            Portfolio 2025
+            Portfolio 2026
           </span>
           <div className="h-px w-12 bg-gradient-to-l from-transparent to-purple-500" />
         </motion.div>
@@ -170,7 +170,7 @@ export default function HeroSection() {
           </button>
 
           <a
-            href="https://github.com/kramit1116"
+            href="https://github.com/24f1000489"
             target="_blank"
             rel="noopener noreferrer"
             data-magnetic
@@ -195,14 +195,7 @@ export default function HeroSection() {
           <div className="w-px h-12 bg-gradient-to-b from-purple-500 to-transparent animate-pulse" />
         </motion.div>
       </motion.div>
-
-      {/* Corner decorations */}
-      <div className="absolute top-8 left-8 text-slate-700 font-mono text-xs pointer-events-none select-none">
-        &lt;portfolio /&gt;
-      </div>
-      <div className="absolute top-8 right-8 text-slate-700 font-mono text-xs pointer-events-none select-none">
-        2025
-      </div>
+      {}
     </section>
   );
 }

@@ -10,7 +10,7 @@ const projects = [
     tagline: "Full-stack grocery platform with SSR",
     tech: ["Flask", "Jinja2", "Bootstrap", "SQLite", "Python"],
     color: "#a855f7",
-    icon: "🛒",
+    icon: "cart",
     description:
       "Built a full-stack grocery platform with server-side rendering using Flask and Jinja2. Designed modular backend architecture with environment-based configuration and implemented product listing and user interaction workflows.",
     highlights: [
@@ -28,7 +28,7 @@ const projects = [
     tagline: "Role-based medical platform",
     tech: ["Flask", "Jinja2", "Bootstrap", "SQLite", "Python"],
     color: "#3b82f6",
-    icon: "🏥",
+    icon: "hospital",
     description:
       "Developed a role-based system for admin, doctor, and patients. Implemented appointment scheduling and medical record handling while ensuring data integrity with structured database models.",
     highlights: [
@@ -46,7 +46,7 @@ const projects = [
     tagline: "Multi-role recruitment platform",
     tech: ["Flask", "Jinja2", "Bootstrap", "SQLite", "Python"],
     color: "#06b6d4",
-    icon: "💼",
+    icon: "briefcase",
     description:
       "Multi-role system for Admin, Company, and Students. Designed workflows for job postings, applications, and user management with a scalable modular backend structure.",
     highlights: [
@@ -59,6 +59,27 @@ const projects = [
     github: "https://github.com/24f1000489/Placement-Portal",
   },
 ];
+
+const ProjectIcon = ({ icon, color }: { icon: string; color: string }) => {
+  const icons: Record<string, React.ReactNode> = {
+    cart: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+      </svg>
+    ),
+    hospital: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
+      </svg>
+    ),
+    briefcase: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+      </svg>
+    ),
+  };
+  return <span style={{ color }}>{icons[icon]}</span>;
+};
 
 function ProjectCard({
   project,
@@ -102,7 +123,7 @@ function ProjectCard({
           className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl"
           style={{ background: `${project.color}15`, border: `1px solid ${project.color}30` }}
         >
-          {project.icon}
+          <ProjectIcon icon={project.icon} color={project.color} />
         </div>
         <span className="font-mono text-5xl font-black opacity-10 leading-none">
           0{index + 1}
@@ -182,7 +203,7 @@ function ProjectModal({
               className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
               style={{ background: `${project.color}15`, border: `1px solid ${project.color}30` }}
             >
-              {project.icon}
+              <ProjectIcon icon={project.icon} color={project.color} />
             </div>
             <div>
               <h3 className="text-2xl font-bold text-white" style={{ fontFamily: "'Space Grotesk'" }}>

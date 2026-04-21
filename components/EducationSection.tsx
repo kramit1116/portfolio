@@ -247,8 +247,8 @@ export default function EducationSection() {
                 style={{ border: "1px solid rgba(168,85,247,0.15)" }}
               >
                 <div className="text-3xl mb-2">⭐</div>
-                <div className="text-white font-bold text-sm">CGPA 9.0</div>
-                <div className="text-slate-600 text-xs mt-1">IIT Madras · Top Performer</div>
+                <div className="text-white font-bold text-sm">1st Rank in Python</div>
+                <div className="text-slate-600 text-xs mt-1">IITM BS</div>
               </motion.div>
             </motion.div>
           </div>

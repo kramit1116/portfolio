@@ -3,6 +3,38 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
+const DI = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
+const SI = "https://cdn.simpleicons.org";
+
+const skillIcons: Record<string, string> = {
+  "PyTorch":      `${DI}/pytorch/pytorch-original.svg`,
+  "NumPy":        `${DI}/numpy/numpy-original.svg`,
+  "Pandas":       `${DI}/pandas/pandas-original.svg`,
+  "Scikit-learn": `${DI}/scikitlearn/scikitlearn-original.svg`,
+  "Flask":        `${DI}/flask/flask-original.svg`,
+  "Vue.js":       `${DI}/vuejs/vuejs-original.svg`,
+  "HTML":         `${DI}/html5/html5-original.svg`,
+  "CSS":          `${DI}/css3/css3-original.svg`,
+  "JavaScript":   `${DI}/javascript/javascript-original.svg`,
+  "Bootstrap":    `${DI}/bootstrap/bootstrap-original.svg`,
+  "Jinja2":       `${SI}/jinja/white`,
+  "Python":       `${DI}/python/python-original.svg`,
+  "Java":         `${DI}/java/java-original.svg`,
+  "Bash":         `${DI}/bash/bash-original.svg`,
+  "TypeScript":   `${DI}/typescript/typescript-original.svg`,
+  "SQL":          `${DI}/postgresql/postgresql-original.svg`,
+  "Git":          `${DI}/git/git-original.svg`,
+  "Redis":        `${DI}/redis/redis-original.svg`,
+  "PostgreSQL":   `${DI}/postgresql/postgresql-original.svg`,
+  "SQLite":       `${DI}/sqlite/sqlite-original.svg`,
+  "VS Code":      `${DI}/vscode/vscode-original.svg`,
+  "Vercel":       `${SI}/vercel/white`,
+  "Docker":       `${DI}/docker/docker-original.svg`,
+  "Vim":          `${DI}/vim/vim-original.svg`,
+  "Neovim":       `${DI}/neovim/neovim-original.svg`,
+  "Linux":        `${DI}/linux/linux-original.svg`,
+};
+
 const skillCategories = [
   {
     name: "AI / Data Science",
@@ -48,6 +80,7 @@ const skillCategories = [
     icon: "⚙️",
     skills: [
       "Git",
+      "Docker",
       "Redis",
       "PostgreSQL",
       "SQLite",
@@ -71,6 +104,7 @@ function SkillTag({
   index: number;
 }) {
   const [hovered, setHovered] = useState(false);
+  const iconUrl = skillIcons[skill];
 
   return (
     <motion.div
@@ -79,7 +113,7 @@ function SkillTag({
       transition={{ delay: index * 0.03, type: "spring", stiffness: 300 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="font-mono text-xs px-3 py-1.5 rounded-full transition-all duration-300"
+      className="font-mono text-xs px-3 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5"
       style={{
         background: hovered ? `${color}25` : `${color}10`,
         border: `1px solid ${hovered ? color + "60" : color + "20"}`,
@@ -88,6 +122,16 @@ function SkillTag({
         transform: hovered ? "translateY(-2px)" : "translateY(0)",
       }}
     >
+      {iconUrl && (
+        <img
+          src={iconUrl}
+          alt={skill}
+          width={14}
+          height={14}
+          className="shrink-0"
+          style={{ opacity: hovered ? 1 : 0.7 }}
+        />
+      )}
       {skill}
     </motion.div>
   );
