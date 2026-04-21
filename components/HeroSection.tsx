@@ -69,7 +69,7 @@ export default function HeroSection() {
       </div>
 
       {/* Ripple layer */}
-      <RippleCanvas mousePosition={mousePosition} />
+      <RippleCanvas />
 
       {/* Deep background gradient */}
       <div className="absolute inset-0 z-0 pointer-events-none">

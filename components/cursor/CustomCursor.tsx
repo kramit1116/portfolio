@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function CustomCursor() {
-  const cursorRef = useRef<HTMLDivElement>(null);
   const trailRef = useRef<HTMLDivElement>(null);
 
   const mouseX = useMotionValue(0);

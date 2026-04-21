@@ -2,11 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-interface RippleCanvasProps {
-  mousePosition: { x: number; y: number };
-}
-
-export default function RippleCanvas({ mousePosition }: RippleCanvasProps) {
+export default function RippleCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const ripples = useRef<
     {
